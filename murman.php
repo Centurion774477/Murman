@@ -3,8 +3,6 @@
 # Murman is licensed under the O'Saasy license.
 # For more information, see LICENSE.md
 
-$start = microtime(true);
-
 function getNewContents(string $contents): array {
     $lines = explode(PHP_EOL, $contents);
 
@@ -33,11 +31,7 @@ function purifyMarkdown(string $file): string {
         exit;
     }
 
-    $fileHandle = fopen($file, 'r');
-
-    $contents = fread($fileHandle, filesize($file));
-
-    fclose($fileHandle);
+    $contents = file_get_contents($file);
 
     if ($contents === false) {
         echo "Something went wrong";
@@ -59,8 +53,8 @@ function purifyMarkdown(string $file): string {
     return $newFile;
 }
 
-
-if ((isset($argv[1]) == false)) {
+# if no file was passed as ARGV[1]
+if (isset($argv[1]) == false) {
     echo "Invalid argument given. Please provide a file to purify.";
     exit;
 }
@@ -70,7 +64,3 @@ $fileToPurify = $argv[1];
 $generatedFile = purifyMarkdown($fileToPurify);
 
 echo "Done! Your new file is now named $generatedFile\n";
-
-$end = microtime(true);
-
-echo "Took " . ($end - $start) . " seconds";
