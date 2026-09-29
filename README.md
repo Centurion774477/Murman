@@ -20,8 +20,4 @@ Then, simply run `php murman.php <file_to_purify>` in your terminal -- make sure
 
 If you wish, you could add it to your bin by making it executable and whatnot, but that's different for everybody so I can't give you a tutorial.
 
-# Outro
-
-Since Murman is licensed under the [O'Saasy](https://osaasy.dev/), feel free to do basically whatever you want with it.
-
-Cheers!
+I hope you enjoy Murman. Cheers!
