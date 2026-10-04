@@ -1,8 +1,5 @@
 <?php
 
-# Murman is licensed under the O'Saasy license.
-# For more information, see LICENSE.md
-
 function getNewContents(string $contents): array {
     $lines = explode(PHP_EOL, $contents);
 
